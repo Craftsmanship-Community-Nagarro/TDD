@@ -1,0 +1,20 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: .NET build
+
+on:
+  push:
+    paths:
+      - 'csharp/**'
+      - '.github/workflows/csharp_build.yml'
+  pull_request:
+    paths:
+      - 'csharp/**'
+      - '.github/workflows/csharp_build.yml'
+  workflow_dispatch:
+  
+jobs:
+  call-dotnet-job:
+    uses: Nagarro-ICAgile-Programming-Template/ci-configuration/.github/workflows/dotnet.yml@main
+    secrets: inherit
