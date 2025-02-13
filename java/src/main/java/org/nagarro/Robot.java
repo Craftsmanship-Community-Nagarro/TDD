@@ -46,16 +46,18 @@ public class Robot {
   public void rotateClockwise() {
     direction = switch (direction) {
       case NORTH -> RobotDirection.EAST;
-      case EAST -> RobotDirection.NORTH;
-      case WEST -> RobotDirection.WEST;
+      case EAST -> RobotDirection.SOUTH;
+      case SOUTH -> RobotDirection.WEST;
+      case WEST -> RobotDirection.NORTH;
     };
   }
 
   public void rotateCounterClockwise() {
     direction = switch (direction) {
       case NORTH -> RobotDirection.WEST;
+      case WEST -> RobotDirection.SOUTH;
+      case SOUTH -> RobotDirection.EAST;
       case EAST -> RobotDirection.NORTH;
-      case WEST -> RobotDirection.WEST;
     };
   }
 }

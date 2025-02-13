@@ -1,5 +1,5 @@
 package org.nagarro;
 
 public enum RobotDirection {
-    NORTH, WEST, EAST
+    NORTH, WEST, EAST, SOUTH
 }
