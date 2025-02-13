@@ -1,19 +1,32 @@
 package org.nagarro;
 
 public class Robot {
-    public void dropOnSurface(int i, int i1) {
 
-    }
+  private int latitude;
+  private int longitude;
+  private RobotDirection direction = RobotDirection.NORTH;
 
-    public int getLatitude() {
-        return 0;
-    }
+  /**
+   * Drop the robot on the surface.
+   * Longitude and latitude are the coordinates of the surface.
+   *
+   * @param longitude is the movement left and right.
+   * @param latitude is the movement up and down.
+   */
+  public void dropOnSurface(int longitude, int latitude) {
+    this.latitude = latitude;
+    this.longitude = longitude;
+  }
 
-    public int getLongitude() {
-        return 0;
-    }
+  public int getLatitude() {
+    return this.latitude;
+  }
 
-    public RobotDirection getDirection() {
-        return RobotDirection.NORTH;
-    }
+  public int getLongitude() {
+    return this.longitude;
+  }
+
+  public RobotDirection getDirection() {
+    return this.direction;
+  }
 }
