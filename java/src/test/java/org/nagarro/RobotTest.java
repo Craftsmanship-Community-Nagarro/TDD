@@ -147,4 +147,43 @@ class RobotTest {
     assertThat(robot.getLongitude()).isEqualTo(0);
   }
 
+  @Test
+  void moveRobotForwardWithRotation() {
+    Robot robot = new Robot();
+    robot.dropOnSurface(0, 0);
+    robot.rotateClockwise();
+    robot.moveForward();
+
+    assertThat(robot.getLatitude()).isEqualTo(0);
+    assertThat(robot.getLongitude()).isEqualTo(1);
+    assertThat(robot.getDirection()).isEqualTo(RobotDirection.EAST);
+  }
+
+  @Test
+  void moveRobotForwardWithRotationTwice() {
+    Robot robot = new Robot();
+    robot.dropOnSurface(0, 0);
+    robot.rotateClockwise();
+    robot.rotateClockwise();
+    robot.moveForward();
+
+    assertThat(robot.getLatitude()).isEqualTo(-1);
+    assertThat(robot.getLongitude()).isEqualTo(0);
+    assertThat(robot.getDirection()).isEqualTo(RobotDirection.SOUTH);
+  }
+
+  @Test
+  void moveRobotForwardWithRotationThreeTimes() {
+    Robot robot = new Robot();
+    robot.dropOnSurface(0, 0);
+    robot.rotateClockwise();
+    robot.rotateClockwise();
+    robot.rotateClockwise();
+    robot.moveForward();
+
+    assertThat(robot.getLatitude()).isEqualTo(0);
+    assertThat(robot.getLongitude()).isEqualTo(-1);
+    assertThat(robot.getDirection()).isEqualTo(RobotDirection.WEST);
+  }
+
 }

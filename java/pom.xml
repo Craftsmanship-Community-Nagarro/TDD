@@ -10,7 +10,7 @@
     <name>test-driven-development</name>
 
     <properties>
-        <maven.compiler.release>21</maven.compiler.release>
+        <maven.compiler.release>18</maven.compiler.release>
         <junit.version>5.10.3</junit.version>
     </properties>
 

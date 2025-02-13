@@ -34,7 +34,15 @@ public class Robot {
     if (direction == RobotDirection.NORTH) {
       latitude++;
     }
-
+    if (direction == RobotDirection.EAST) {
+      longitude++;
+    }
+    if (direction == RobotDirection.SOUTH) {
+      latitude--;
+    }
+    if (direction == RobotDirection.WEST) {
+      longitude--;
+    }
   }
 
   public void moveBackwards() {
