@@ -11,7 +11,7 @@ public class Robot {
    * Longitude and latitude are the coordinates of the surface.
    *
    * @param longitude is the movement left and right.
-   * @param latitude is the movement up and down.
+   * @param latitude  is the movement up and down.
    */
   public void dropOnSurface(int longitude, int latitude) {
     this.latitude = latitude;
@@ -31,15 +31,31 @@ public class Robot {
   }
 
   public void moveForward() {
-    if (direction == RobotDirection.NORTH){
+    if (direction == RobotDirection.NORTH) {
       latitude++;
     }
 
   }
 
   public void moveBackwards() {
-    if (direction == RobotDirection.NORTH){
+    if (direction == RobotDirection.NORTH) {
       latitude--;
     }
+  }
+
+  public void rotateClockwise() {
+    direction = switch (direction) {
+      case NORTH -> RobotDirection.EAST;
+      case EAST -> RobotDirection.NORTH;
+      case WEST -> RobotDirection.WEST;
+    };
+  }
+
+  public void rotateCounterClockwise() {
+    direction = switch (direction) {
+      case NORTH -> RobotDirection.WEST;
+      case EAST -> RobotDirection.NORTH;
+      case WEST -> RobotDirection.WEST;
+    };
   }
 }
