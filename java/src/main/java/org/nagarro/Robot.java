@@ -29,4 +29,11 @@ public class Robot {
   public RobotDirection getDirection() {
     return this.direction;
   }
+
+  public void moveForward() {
+    if (direction == RobotDirection.NORTH){
+      latitude++;
+    }
+
+  }
 }

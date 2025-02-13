@@ -25,4 +25,17 @@ class RobotTest {
     assertThat(robot.getLongitude()).isEqualTo(5);
     assertThat(robot.getDirection()).isEqualTo(RobotDirection.NORTH);
   }
+
+  @Test
+  void moveRobotForward(){
+    Robot robot = new Robot();
+    robot.dropOnSurface(0, 0);
+
+    robot.moveForward();
+    assertThat(robot.getLatitude()).isEqualTo(1);
+    assertThat(robot.getLongitude()).isEqualTo(0);
+    assertThat(robot.getDirection()).isEqualTo(RobotDirection.NORTH);
+  }
+
+
 }
