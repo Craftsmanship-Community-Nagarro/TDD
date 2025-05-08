@@ -175,14 +175,14 @@ class RobotTest {
   @Test
   void moveRobotForwardWithRotationThreeTimes() {
     Robot robot = new Robot();
-    robot.dropOnSurface(0, 0);
+    robot.dropOnSurface(1, 0);
     robot.rotateClockwise();
     robot.rotateClockwise();
     robot.rotateClockwise();
     robot.moveForward();
 
     assertThat(robot.getLatitude()).isEqualTo(0);
-    assertThat(robot.getLongitude()).isEqualTo(-1);
+    assertThat(robot.getLongitude()).isEqualTo(0);
     assertThat(robot.getDirection()).isEqualTo(RobotDirection.WEST);
   }
 

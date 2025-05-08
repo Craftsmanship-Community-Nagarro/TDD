@@ -31,4 +31,34 @@ class BoundaryTest {
     assertThat(longitude).isEqualTo(9);
     assertThat(latitude).isEqualTo(9);
   }
+
+  @Test
+  void shouldNotLeaveTheGridAfterMovingMultipleStepsForward(){
+    final Robot robot = new Robot();
+    robot.dropOnSurface(0,0);
+
+    for (int i = 0; i < 11; i++){
+      robot.moveForward();
+    }
+    final int longitude = robot.getLongitude();
+    final int latitude = robot.getLatitude();
+
+    assertThat(longitude).isEqualTo(0);
+    assertThat(latitude).isEqualTo(9);
+  }
+
+  @Test
+  void shouldRotateAndMoveForwardAndStillNotCrossTheBoundary(){
+    final Robot robot = new Robot();
+    robot.dropOnSurface(0,0);
+
+    robot.rotateCounterClockwise();
+    robot.moveForward();
+
+    final int longitude = robot.getLongitude();
+    final int latitude = robot.getLatitude();
+
+    assertThat(longitude).isEqualTo(0);
+    assertThat(latitude).isEqualTo(0);
+  }
 }

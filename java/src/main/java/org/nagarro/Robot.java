@@ -7,7 +7,9 @@ public class Robot {
   private RobotDirection direction = RobotDirection.NORTH;
 
   private final static int MAX_LATITUDE_EXCLUSIVE = 9;
+  private final static int MIN_LATITUDE_EXCLUSIVE = 0;
   private final static int MAX_LONGITUDE_EXCLUSIVE = 9;
+  private final static int MIN_LONGITUDE_EXCLUSIVE = 0;
 
   /**
    * Drop the robot on the surface.
@@ -43,13 +45,13 @@ public class Robot {
     if (direction == RobotDirection.SOUTH) {
       latitude--;
     }
-    if (direction == RobotDirection.WEST) {
+    if (direction == RobotDirection.WEST && longitude > MIN_LONGITUDE_EXCLUSIVE) {
       longitude--;
     }
   }
 
   public void moveBackwards() {
-    if (direction == RobotDirection.NORTH && (latitude > 0 /*TODO*/)) {
+    if (direction == RobotDirection.NORTH && (latitude > MIN_LATITUDE_EXCLUSIVE)) {
       latitude--;
     }
   }
