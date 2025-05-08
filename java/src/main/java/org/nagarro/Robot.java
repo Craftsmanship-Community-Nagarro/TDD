@@ -54,6 +54,12 @@ public class Robot {
     if (direction == RobotDirection.NORTH && (latitude > MIN_LATITUDE_EXCLUSIVE)) {
       latitude--;
     }
+    if (direction == RobotDirection.EAST &&  (longitude > MIN_LONGITUDE_EXCLUSIVE)) {
+      longitude--;
+    }
+    if (direction == RobotDirection.SOUTH) {
+      latitude++;
+    }
   }
 
   public void rotateClockwise() {
