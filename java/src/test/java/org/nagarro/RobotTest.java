@@ -167,7 +167,7 @@ class RobotTest {
     robot.rotateClockwise();
     robot.moveForward();
 
-    assertThat(robot.getLatitude()).isEqualTo(-1);
+    assertThat(robot.getLatitude()).isEqualTo(0);
     assertThat(robot.getLongitude()).isEqualTo(0);
     assertThat(robot.getDirection()).isEqualTo(RobotDirection.SOUTH);
   }

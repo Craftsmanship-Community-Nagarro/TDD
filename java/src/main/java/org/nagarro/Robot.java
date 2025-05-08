@@ -42,7 +42,7 @@ public class Robot {
     if (direction == RobotDirection.EAST) {
       longitude++;
     }
-    if (direction == RobotDirection.SOUTH) {
+    if (direction == RobotDirection.SOUTH && latitude> MIN_LATITUDE_EXCLUSIVE) {
       latitude--;
     }
     if (direction == RobotDirection.WEST && longitude > MIN_LONGITUDE_EXCLUSIVE) {
