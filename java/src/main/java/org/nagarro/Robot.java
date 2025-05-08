@@ -6,6 +6,9 @@ public class Robot {
   private int longitude;
   private RobotDirection direction = RobotDirection.NORTH;
 
+  private final int MAX_LATITUDE = 10;
+  private final int MAX_LONGITUDE = 10;
+
   /**
    * Drop the robot on the surface.
    * Longitude and latitude are the coordinates of the surface.
@@ -46,7 +49,7 @@ public class Robot {
   }
 
   public void moveBackwards() {
-    if (direction == RobotDirection.NORTH) {
+    if (direction == RobotDirection.NORTH && (latitude > 0 /*TODO*/)) {
       latitude--;
     }
   }
