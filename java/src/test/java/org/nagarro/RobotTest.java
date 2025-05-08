@@ -40,10 +40,10 @@ class RobotTest {
   @Test
   void moveRobotBackwards() {
     Robot robot = new Robot();
-    robot.dropOnSurface(0, 0);
+    robot.dropOnSurface(0, 1);
 
     robot.moveBackwards();
-    assertThat(robot.getLatitude()).isEqualTo(-1);
+    assertThat(robot.getLatitude()).isEqualTo(0);
     assertThat(robot.getLongitude()).isEqualTo(0);
     assertThat(robot.getDirection()).isEqualTo(RobotDirection.NORTH);
   }
