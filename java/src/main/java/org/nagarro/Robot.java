@@ -42,7 +42,7 @@ public class Robot {
     if (direction == RobotDirection.EAST) {
       longitude++;
     }
-    if (direction == RobotDirection.SOUTH && latitude> MIN_LATITUDE_EXCLUSIVE) {
+    if (direction == RobotDirection.SOUTH && latitude > MIN_LATITUDE_EXCLUSIVE) {
       latitude--;
     }
     if (direction == RobotDirection.WEST && longitude > MIN_LONGITUDE_EXCLUSIVE) {
@@ -54,10 +54,13 @@ public class Robot {
     if (direction == RobotDirection.NORTH && (latitude > MIN_LATITUDE_EXCLUSIVE)) {
       latitude--;
     }
-    if (direction == RobotDirection.EAST &&  (longitude > MIN_LONGITUDE_EXCLUSIVE)) {
+    if (direction == RobotDirection.EAST && (longitude > MIN_LONGITUDE_EXCLUSIVE)) {
       longitude--;
     }
-    if (direction == RobotDirection.SOUTH) {
+    if (direction == RobotDirection.WEST && (longitude < MAX_LONGITUDE_EXCLUSIVE)) {
+      longitude++;
+    }
+    if (direction == RobotDirection.SOUTH && (latitude < MAX_LATITUDE_EXCLUSIVE)) {
       latitude++;
     }
   }
