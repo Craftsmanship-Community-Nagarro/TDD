@@ -1,0 +1,56 @@
+{
+    "name": "Java",
+    "dockerComposeFile": [
+        "../docker-compose.yml"
+    ],
+    "service": "tdd-dev-env",
+    "workspaceFolder": "/workspace",
+    "shutdownAction": "stopCompose",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "java.jdt.ls.java.home": "/usr/lib/jvm/java-1.21.0-openjdk-amd64",
+                "java.import.gradle.java.home": "/usr/lib/jvm/java-1.21.0-openjdk-amd64",
+                "java.configuration.runtimes": [
+                    {
+                        "name": "JavaSE-21",
+                        "path": "/usr/lib/jvm/java-1.21.0-openjdk-amd64",
+                        "default": true
+                    }
+                ],
+                "editor.tabSize": 2,
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "terminal.integrated.profiles.linux": {
+                    "bash": {
+                        "path": "/bin/bash"
+                    }
+                }
+            },
+            "extensions": [
+                "vscjava.vscode-java-pack",
+                "mhutchie.git-graph",
+                "vscjava.vscode-lombok",
+                "eamodio.gitlens",
+                "VisualStudioExptTeam.vscodeintellicode",
+                "DavidAnson.vscode-markdownlint",
+                "vmware.vscode-boot-dev-pack",
+                "ms-azuretools.vscode-docker",
+                "vscjava.vscode-gradle",
+                "k--kato.intellij-idea-keybindings",
+                "shengchen.vscode-checkstyle",
+                "42Crunch.vscode-openapi",
+                "alexkrechik.cucumberautocomplete",
+                "amillard98.specflow-tools",
+                "oracle.oracle-java",
+                "pleiades.java-extension-pack-jdk",
+                "GitHub.copilot"
+            ]
+        }
+    },
+    "remoteUser": "root",
+    "postCreateCommand": "echo 'export JAVA_HOME=/usr/lib/jvm/java-1.21.0-openjdk-amd64' >> ~/.bashrc && echo 'export PATH=$JAVA_HOME/bin:$PATH' >> ~/.bashrc",
+    "forwardPorts": [
+        8080,
+        8081
+    ]
+}

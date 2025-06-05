@@ -1,0 +1,44 @@
+version: '3.3'
+services:
+  tdd-dev-env:
+    container_name: tdd-dev-env
+    # Note that the path of the Dockerfile and context is relative to the *primary*
+    # docker-compose.yml file (the first in the devcontainer.json "dockerComposeFile"
+    # array). The sample below assumes your primary file is in the root of your project.
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+      #dockerfile: Dockerfile
+      args:
+        # Update the VARIANT arg to pick a Java version: 11, 15
+        VARIANT: "21"
+        # Options
+        INSTALL_MAVEN: "true"
+        INSTALL_GRADLE: "true"
+        GRADLE_VERSION: "8.8"
+        INSTALL_NODE: "false"
+        NODE_VERSION: "lts/*"
+    cap_add:
+      - CAP_IPC_LOCK
+    volumes:
+      - .:/workspace:cached
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    #Expose ports 8080 and 8081
+    ports:
+      - 8080:8080
+      - 8081:8081
+    networks:
+      development:
+        ipv4_address: 172.16.200.20
+
+networks:
+  development:
+    driver: "bridge"
+    driver_opts:
+      com.docker.network.enable_ipv6: "false"
+    ipam:
+      driver: "default"
+      config:
+        - subnet: "172.16.200.0/24"
+          gateway: "172.16.200.1"
+
