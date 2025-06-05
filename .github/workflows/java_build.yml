@@ -5,8 +5,7 @@
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
 # documentation.
-
-name: Java build
+name: Java Build
 
 on:
   push:
@@ -18,8 +17,28 @@ on:
       - 'java/**'
       - '.github/workflows/java_build.yml'
   workflow_dispatch:
-  
+
 jobs:
-  call-maven-job:
-    uses: Nagarro-ICAgile-Programming-Template/ci-configuration/.github/workflows/maven.yml@main
-    secrets: inherit
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    
+    - name: Set up JDK 21
+      uses: actions/setup-java@v3
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+        
+    - name: Cache Maven dependencies
+      uses: actions/cache@v3
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('java/**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
+          
+    - name: Build with Maven
+      run: cd java && mvn -B package --file pom.xml
