@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Application",
+            "request": "launch",
+            "mainClass": "org.nagarro.Main",
+            "vmArgs": "-ea -Djava.security.egd=file:/dev/./urandom -Xms256m -Xmx512m",
+            "console": "integratedTerminal"           
+        }
+    ]
+}
